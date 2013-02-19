@@ -1,0 +1,12 @@
+name: Jason Burmark
+      Tianyu Shao
+login: 184-bj
+       184-ei
+name of scene: pool table and cosmos
+brief introduction of scene: We want to build a pool table with balls on it, window, painting, floor and stars outside the window.
+                             for balls on the table and stars, we want the animation.
+							 for table, floor and painting, we want the texture.
+							 for everything, we want the correct shading.
+							 for the interesting shading effect, we want the shadows.
+							 also, we want to pass in different obj files for the table and add some obj files like a stool and a pool table light.
+							 

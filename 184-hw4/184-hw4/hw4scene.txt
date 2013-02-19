@@ -1,0 +1,395 @@
+# Scene description.
+
+# Set the scene size and camera location 
+size 500 500
+camera 2.53 1.8 0.82   0 0.15 0   0 0 1   75.0
+
+background 0 0 0 1
+
+# point lights
+light 0.85 0 0.85 1     0.25 0.25 0.17 1
+light -0.85 0 0.85 1    0.25 0.25 0.17 1
+light 0 0 0.85 1        0.25 0.25 0.17 1
+# directional lights, offset direction slightly so not parallel with walls
+light 1 -0.01 0.01 0		0.125 0.125 0.085 1
+light -0.01 1 0.01 0		0.125 0.125 0.085 1
+light 0.01 -1 -0.01 0		0.125 0.125 0.085 1
+light 0.01 -0.01 -1 0		0.125 0.125 0.085 1
+
+pushTransform 
+translate 0 0 -0.85
+
+emission 0 0 0 0
+
+# "lights"
+  ambient 1 1 0.125 1 
+  diffuse 0 0 0 1
+  specular 0 0 0 0
+  shininess 1
+  pushTransform
+		translate 0 0 1.7
+		sphere 0.15
+
+		pushTransform
+		      translate 0.85 0 0
+			  sphere 0.15
+		popTransform
+
+		pushTransform
+		      translate -0.85 0 0
+			  sphere 0.15
+		popTransform
+
+  popTransform
+
+# "light" fixture
+  ambient 0.09375 0.09375 0.09375 1 
+  diffuse 0.75 0.75 0.78 1
+  specular 0.95 0.95 1 1
+  shininess 150
+  pushTransform
+		translate 0 0 2.075
+
+		pushTransform
+		      scale 0.05 0.05 0.75
+			  rotate 0 0 1 0.7853981634
+			  cube 1
+		popTransform
+
+		pushTransform
+		      translate 0.85 0 0
+			  scale 0.05 0.05 0.75
+			  rotate 0 0 1 0.7853981634
+			  cube 1
+		popTransform
+
+		pushTransform
+		      translate -0.85 0 0
+			  scale 0.05 0.05 0.75
+			  rotate 0 0 1 0.7853981634
+			  cube 1
+		popTransform
+
+  popTransform
+
+# floor
+  ambient 0.12 0.11 0.088 1 
+  diffuse 0.48 0.44 0.35 1
+  specular 0.5 0.5 0.5 1
+  shininess 10
+
+  pushTransform
+		translate 0 0 -0.05
+		scale 7.3 5.8 0.2
+		rotate 0 0 1 1.5707963268
+		OBJtex box.txt floor.raw 512 512
+  popTransform
+
+# ceiling
+  ambient 0.070 0.028 0.0093 1 
+  diffuse 0.28 0.13 0.037 1
+  specular 0.5 0.5 0.5 1
+  shininess 5
+
+  pushTransform
+		translate 0 0 2.45
+		scale 7.3 5.8 0.2
+		cube 1
+  popTransform
+
+
+# walls
+  ambient 0.10 0.089 0.069 1 
+  diffuse 0.41 0.355 0.28 1
+  specular 0.5 0.5 0.5 1
+  shininess 10
+
+  pushTransform
+		translate 0 2.95 1.2
+		scale 7.3 0.2 2.4
+		cube 1
+  popTransform
+
+  pushTransform
+		translate 0 -2.95 1.2
+		scale 7.3 0.2 2.4
+		cube 1
+  popTransform
+
+  pushTransform
+		translate 3.7 0 1.2
+		scale 0.2 5.8 2.4
+		cube 1
+  popTransform
+
+# windowed wall
+  pushTransform
+		translate -3.7 0 0.3875
+		scale 0.2 5.8 0.775
+		cube 1
+  popTransform
+
+  pushTransform
+		translate -3.7 0 2.2125
+		scale 0.2 5.8 0.375
+		cube 1
+  popTransform
+
+  pushTransform
+		translate -3.7 2.075 1.4
+		scale 0.2 1.65 1.25
+		cube 1
+  popTransform
+
+  pushTransform
+		translate -3.7 -2.075 1.4
+		scale 0.2 1.65 1.25
+		cube 1
+  popTransform
+
+  ambient 0.10 0.089 0.069 1 
+  diffuse 0.41 0.355 0.28 1
+  specular 0.15 0.15 0.15 1
+  shininess 1
+
+# picture
+  ambient 0.1 0.5 0.01 1 
+  diffuse 0.25 0.75 0.15 1
+  specular 0.5 0.5 0.5 1
+  shininess 15
+  pushTransform
+		translate 0 2.85 1.4
+		scale 1.1 0.2 1.1
+		rotate 0 1 0  1.5707963268
+		rotate 1 0 0  1.5707963268
+		OBJtex box.txt no_dogs_sign.raw 512 512
+  popTransform
+
+# human
+  ambient 0.093 0 0.125 1 
+  diffuse 0.746 0 1 1
+  specular 0.5 0.1 0.7 1
+  shininess 1
+  pushTransform
+		translate 0 -1.5 -0.366
+		rotate 0 0 1  1.570796327
+		scale 0.12 0.12 0.12
+		OBJ human.txt norm
+  popTransform
+
+# cue
+  ambient 0.103 0.088 0.068 1 
+  diffuse 0.82 0.703 0.547 1
+  specular 0.75 0.75 0.75 1
+  shininess 20
+  pushTransform
+		translate 0.4 -1.2 0.5
+		rotate -1 0 0  0.2
+		scale 0.025 0.025 1.52
+		OBJ cue.txt norm
+  popTransform
+
+  pushTransform
+		translate -0.5 0.842 0.05
+		rotate 1 0 0  0.15
+		rotate 0 0 1  3.14159265
+		scale 0.025 0.025 1.52
+		OBJ cue.txt norm
+  popTransform
+
+# table
+  ambient 0.070 0.028 0.0093 1 
+  diffuse 0.28 0.13 0.037 1
+  specular 0.5 0.5 0.5 1
+  shininess 25
+
+  pushTransform
+		scale 1.42 1.42 1.42
+		OBJtable table_rest.txt
+		OBJtabletop table_top.txt  1 1 1 0 0 0 0
+  popTransform
+
+
+# walls and holes
+# top right
+wall 1.3064 0.5538		1.3348 0.5822
+hole 0.0426  1.3348 0.6248
+wall 1.2922 0.6248		1.2638 0.5964
+
+wall 1.2638 0.5964		0.071 0.5964
+		
+# top middle
+wall 0.071 0.5964		0.0426 0.6248
+hole 0.0426  0 0.6248
+wall -0.0426 0.6248		-0.071 0.5964
+
+wall -0.071 0.5964		-1.2638 0.5964
+
+# top left
+wall -1.2638 0.5964		-1.2922 0.6248
+hole 0.0426  -1.3348 0.6248
+wall -1.3348 0.5822		-1.3064 0.5538
+
+# left
+wall -1.3064 0.5538		-1.3064 -0.5538
+		
+# bottom left
+wall -1.3064 -0.5538	-1.3348 -0.5822
+hole 0.0426  -1.3348 -0.6248
+wall -1.2922 -0.6248	-1.2638 -0.5964
+
+wall -1.2638 -0.5964	-0.071 -0.5964
+		
+# bottom middle
+wall -0.071 -0.5964		-0.0426 -0.6248
+hole 0.0426  0 -0.6248
+wall 0.0426 -0.6248		0.071 -0.5964
+
+wall 0.071 -0.5964		1.2638 -0.5964
+
+# bottom right
+wall 1.2638 -0.5964		1.2922 -0.6248
+hole 0.0426  1.3348 -0.6248
+wall 1.3348 -0.5822		1.3064 -0.5538
+
+# right
+wall 1.3064 -0.5538		1.3064 0.5538
+
+
+# balls
+  specular 1 1 1 1
+  shininess 125
+  pushTransform
+		translate 0 0 0.79538
+
+		# blue
+		ambient 0.05 0.05 0.35 1 
+		diffuse 0.05 0.05 0.35 1
+		pushTransform
+			translate 0.25 0.5 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# yellow
+		ambient 0.35 0.35 0.05 1 
+		diffuse 0.35 0.35 0.05 1
+		pushTransform
+			translate 0.46 -0.34 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# red
+		ambient 0.35 0.05 0.05 1 
+		diffuse 0.35 0.05 0.05 1
+		pushTransform
+			translate -0.25 0.34 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# magenta
+		ambient 0.35 0.05 0.35 1 
+		diffuse 0.35 0.05 0.35 1
+		pushTransform
+			translate -0.8 -0.34 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# cyan
+		ambient 0.05 0.35 0.35 1 
+		diffuse 0.05 0.35 0.35 1
+		pushTransform
+			translate 0.35 -0.04 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# green
+		ambient 0.05 0.35 0.05 1 
+		diffuse 0.05 0.35 0.05 1
+		pushTransform
+			translate -0.47 -0.2 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# dark
+		ambient 0.05 0.05 0.05 1 
+		diffuse 0.05 0.05 0.05 1
+		pushTransform
+			translate -0.65 -0.24 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+		# white
+		ambient 0.25 0.25 0.25 1 
+		diffuse 0.5 0.5 0.5 1
+		pushTransform
+			translate 0.75 -0.34 0
+			rotate 1 0 0  1.5707963268
+			tablesphere 0.03   0.17 0.03   0 0 0   0 0   0 0 0
+		popTransform
+
+  popTransform
+
+# dynamic system
+  ambient 1 1 0.125 1 
+  diffuse 0 0 0 1
+  specular 0 0 0 0
+  shininess 1
+  pushTransform 
+        translate -50 0 1.8
+        dynamicsphere 1   2500.0 1   0 0 0    0 0 0   0 0 0   0 0 0
+        dynamiclight 0 0 0 1   0.1 0.1 0.025 1
+
+        specular 0.25 0.82 0.8 0
+        shininess 150
+
+		ambient 0.05 0.05 0.35 1 
+		diffuse 0.05 0.05 0.35 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.35 0.35 0.05 1 
+		diffuse 0.35 0.35 0.05 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.35 0.05 0.05 1 
+		diffuse 0.35 0.05 0.05 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.35 0.05 0.35 1 
+		diffuse 0.35 0.05 0.35 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.05 0.35 0.35 1 
+		diffuse 0.05 0.35 0.35 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.05 0.35 0.05 1 
+		diffuse 0.05 0.35 0.05 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.05 0.05 0.05 1 
+		diffuse 0.05 0.05 0.05 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+
+		ambient 0.25 0.25 0.25 1 
+		diffuse 0.5 0.5 0.5 1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+		dynamicsphere 0.2   5.5 0.2   0.0 0.0 0.0   0 0 0   10 10 1  1 1 0.1
+  popTransform
+
+# Undo global transform
+popTransform
+
